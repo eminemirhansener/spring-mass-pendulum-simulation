@@ -6,7 +6,7 @@ This repository documents the mathematical modeling and dynamic simulation of a 
 
 The dynamic response of the system under different external torque inputs ($\tau$) is shown below. These animations demonstrate the system's behavior governed by the derived state-space equations.
 
-| Sinusoidal Input Response | Step Input Response |
+| Sinusoidal Input Response with Initial Angle | Step Input Response with Initial Angle|
 | :---: | :---: |
 | ![Sinusoidal Input Simulation](sinusoidal_input.gif) | ![Step Input Simulation](step_input.gif) |
 

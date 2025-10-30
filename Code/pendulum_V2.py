@@ -161,7 +161,7 @@ def scale_around_point(points, center, scale_x = 1.0, scale_y = 1.0):
 def animate_model(time, time_step, position, velocity, input_torque, L: float):
     x_coords = L * np.sin(position) # x coordinates
     y_coords = -L * np.cos(position) # y coordinates
-    o_point = np.array([1, -L])
+    o_point = np.array([1, y_coords[0]])
 
     fig, axes = plt.subplots(3, 2, figsize=(10, 8), sharex='col')
 
@@ -240,6 +240,11 @@ def animate_model(time, time_step, position, velocity, input_torque, L: float):
 
     initial_spring_data = spring_data.copy() # copied original spring point cloud to avoid data corruption.
 
+    # Initial length change for spring
+    dx_initial = x_coords[0] - o_point[0]
+    dy_initial = y_coords[0] - o_point[1]
+    initial_length = np.sqrt(dx_initial**2 + dy_initial**2)
+
     # This function is iterated in FuncAnimation(...) and updates graphs in every frame.
     def animate(i):
         current_x = x_coords[i]
@@ -250,7 +255,7 @@ def animate_model(time, time_step, position, velocity, input_torque, L: float):
 
         alpha = np.arctan(a / b)
         current_spring_length = np.sqrt(a*a + b*b)
-        scale = current_spring_length / o_point[0]
+        scale = current_spring_length / initial_length
 
         scaled_spring = scale_around_point(initial_spring_data, o_point, scale, 1.0)
         scaled_and_rotated = rotate_around_point(scaled_spring, o_point, alpha)
@@ -267,9 +272,9 @@ def animate_model(time, time_step, position, velocity, input_torque, L: float):
     ani = FuncAnimation(fig, animate, frames=len(time), interval=time_step*1000, blit=True)
 
     # Uncomment to save the video.
-    '''
+    """
     # Save Video
-    video_filename = 'step.mp4'
+    video_filename = 'sinusoidal.mp4'
     
     print(f"Video is saving ({video_filename}).")
     print(f"Expected FPS: {1/time_step:.1f} FPS")
@@ -282,7 +287,7 @@ def animate_model(time, time_step, position, velocity, input_torque, L: float):
     )
     
     print(f"Saved: {video_filename}")
-    '''
+    """
 
     plt.show()
 
@@ -299,7 +304,7 @@ if __name__ == "__main__":
     system = PendulumSystem(m=m, L=L, M=M, k_coeff=k_coeff, b_coeff=b_coeff, gravity=gravity)
 
     # --------------------- State-Space - Inıtıal State ---------------------
-    phi = 0
+    phi = -np.pi/9
     phi_dot = 0
     X0 = np.array([[phi],
                 [phi_dot]])
