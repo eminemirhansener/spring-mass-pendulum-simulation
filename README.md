@@ -69,7 +69,10 @@ To use linear system theory, the system is linearized around the unstable equili
 
 ### 3.1. Non-Linear State Equations
 
-The state vector is defined as $x=[\begin{matrix}x_{1}\\ x_{2}\end{matrix}]=[\begin{matrix}\varphi\\ \dot{\varphi}\end{matrix}]$. The non-linear state equations $\dot{x}=h(x,u)=[\begin{matrix}h_{1}\\ h_{2}\end{matrix}]$ are:
+The state vector is defined as 
+$$x=[\begin{matrix}x_{1}\\ x_{2}\end{matrix}]=[\begin{matrix}\varphi\\ \dot{\varphi}\end{matrix}]$$
+ The non-linear state equations 
+ $$\dot{x}=h(x,u)=[\begin{matrix}h_{1}\\ h_{2}\end{matrix}]$$
 
 $$h_{1}=\dot{x}_{1}=x_{2}$$
 
@@ -79,7 +82,8 @@ $$h_{2}=\dot{x}_{2}=\frac{1}{I}\left[\tau-b\dot{\varphi}-gL(\frac{m}{2}+M)\sin(\
 
 The linearized system is $\dot{\tilde{x}}=A\tilde{x}+B\tilde{u}$.
 
-**State Matrix ($A$) Calculation:** $A=\left.\frac{\partial h}{\partial x}\right|_{x_{0}}$
+**State Matrix ($A$) Calculation:** 
+$$A=\left.\frac{\partial h}{\partial x}\right|_{x_{0}}$$
 
 * $A_{11}=\frac{\partial h_{1}}{\partial x_{1}} = 0$
 * $A_{12}=\frac{\partial h_{1}}{\partial x_{2}} = 1$
@@ -88,7 +92,8 @@ The linearized system is $\dot{\tilde{x}}=A\tilde{x}+B\tilde{u}$.
 * $A_{22}=\frac{\partial h_{2}}{\partial x_{2}}$: This is calculated by differentiating the damping term.
     $$A_{22}=-\frac{b}{I}$$
 
-**Input Matrix ($B$) Calculation:** $B=\left.\frac{\partial h}{\partial u}\right|_{x_{0}u_{0}}$
+**Input Matrix ($B$) Calculation:** 
+$$B=\left.\frac{\partial h}{\partial u}\right|_{x_{0}u_{0}}$$
 
 * $B_{1}=\frac{\partial h_{1}}{\partial u} = 0$
 * $B_{2}=\frac{\partial h_{2}}{\partial u} = \frac{1}{I}$
