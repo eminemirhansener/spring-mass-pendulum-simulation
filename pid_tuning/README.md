@@ -22,17 +22,21 @@ where $\mathbf{x} = [\varphi, \dot{\varphi}]^T$, $\mathbf{\tau}$ is the input to
 The transfer function $G(s)$, which relates the input torque $\mathbf{\tau}(s)$ to the output angle $\mathbf{Y}(s)$ in the Laplace domain, is derived by applying the Laplace Transform to the state-space equations.
 
 1.  **Transforming the State Equation (Assuming zero initial conditions):**
+
     $$s\mathbf{X}(s) = \mathbf{A}\mathbf{X}(s) + \mathbf{B}\mathbf{\tau}(s)$$
 
 2.  **Solving for the State Vector $\mathbf{X}(s)$:**
+
     $$(s\mathbf{I} - \mathbf{A})\mathbf{X}(s) = \mathbf{B}\mathbf{\tau}(s)$$
     $$\mathbf{X}(s) = (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{B}\mathbf{\tau}(s)$$
 
 3.  **Substituting $\mathbf{X}(s)$ into the Output Equation:**
+
     $$\mathbf{Y}(s) = \mathbf{C}\mathbf{X}(s) + \mathbf{D}\mathbf{\tau}(s)$$
     $$\mathbf{Y}(s) = \mathbf{C}(s\mathbf{I} - \mathbf{A})^{-1}\mathbf{B}\mathbf{\tau}(s) + \mathbf{D}\mathbf{\tau}(s)$$
 
 4.  **Final Transfer Function:**
+
     The transfer function $\mathbf{G}(s)$ is defined as $\mathbf{Y}(s) / \mathbf{\tau}(s)$:
 
     $$\mathbf{G}(s) = \mathbf{C}(s\mathbf{I} - \mathbf{A})^{-1}\mathbf{B} + \mathbf{D}$$
