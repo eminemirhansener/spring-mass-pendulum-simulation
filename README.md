@@ -72,8 +72,12 @@ To use linear system theory, the system is linearized around the unstable equili
 The state vector is defined as
 
 $$
-x=\begin{bmatrix}x_{1}\\ x_{2}\end{bmatrix}=\begin{bmatrix}\varphi\\ \dot{\varphi}\end{bmatrix}
+x = 
+\begin{bmatrix} x_{1} & x_{2} \end{bmatrix}^{T}
+= 
+\begin{bmatrix} \varphi & \dot{\varphi} \end{bmatrix}^{T}
 $$
+
 
 The non-linear state equations
 
