@@ -69,14 +69,14 @@ To use linear system theory, the system is linearized around the unstable equili
 
 ### 3.1. Non-Linear State Equations
 
-The state vector is defined as
+The state vector is defined as<br>
 $$
-x = \left[\begin{array}{c} x_{1} \\ x_{2} \end{array}\right] = \left[\begin{array}{c} \varphi \\ \dot{\varphi} \end{array}\right]
+x=\begin{bmatrix}x_{1}\\ x_{2}\end{bmatrix}=\begin{bmatrix}\varphi\\ \dot{\varphi}\end{bmatrix}
 $$
 
-The non-linear state equations
+The non-linear state equations<br>
 $$
-\dot{x}=h(x,u) = \left[\begin{array}{c} h_{1} \\ h_{2} \end{array}\right]
+\dot{x}=h(x,u)=\begin{bmatrix}h_{1}\\ h_{2}\end{bmatrix}
 $$
 
 $$h_{1}=\dot{x}_{1}=x_{2}$$
@@ -87,7 +87,7 @@ $$h_{2}=\dot{x}_{2}=\frac{1}{I}\left[\tau-b\dot{\varphi}-gL(\frac{m}{2}+M)\sin(\
 
 The linearized system is $\dot{\tilde{x}}=A\tilde{x}+B\tilde{u}$.
 
-**State Matrix ($A$) Calculation:**
+**State Matrix ($A$) Calculation:**<br>
 $$
 A=\left.\frac{\partial h}{\partial x}\right|_{x_{0}}
 $$
@@ -99,7 +99,7 @@ $$
 * $A_{22}=\frac{\partial h_{2}}{\partial x_{2}}$: This is calculated by differentiating the damping term.
     $$A_{22}=-\frac{b}{I}$$
 
-**Input Matrix ($B$) Calculation:**
+**Input Matrix ($B$) Calculation:**<br>
 $$
 B=\left.\frac{\partial h}{\partial u}\right|_{x_{0}u_{0}}
 $$
