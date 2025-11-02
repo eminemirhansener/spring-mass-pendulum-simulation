@@ -40,9 +40,11 @@ The total moment of inertia ($I$) about the pivot O is the sum of the rod's iner
 1.  **Rod's Inertia ($I_{rod}$):** Calculated via integration from 0 to L.
 
     $$I_{rod} = \frac{1}{3}mL^{2}$$
+
 2.  **Point Mass Inertia ($I_{point\ mass}$):** Since the point mass is attached at $L$, the inertia is calculated using the parallel axis theorem.
 
     $$I_{point\ mass} = ML^{2}$$
+
 3.  **Total Moment of Inertia ($I$):**
 
     $$I = \left(\frac{1}{3}m+M\right)L^{2}$$
@@ -54,13 +56,16 @@ Four major torques act on the system:
 1.  **External Input Torque ($\tau_{input}$):** Positive as defined in the CCW direction.
 
     $$\tau_{input} = +\tau(t)$$
+
 2.  **Damping Torque ($\tau_{b}$):** Always opposes motion.
 
     $$\tau_{b} = -b\dot{\varphi}$$
+
 3.  **Gravity Torque ($\tau_{g}$):** Acts on the centers of 
 gravity of the rod (at $L/2$) and the point mass (at $L$).
 
     $$\tau_{g} = -\left(mg\frac{L}{2}\sin(\varphi)+MgL\sin(\varphi)\right) = -gL\left(\frac{m}{2}+M\right)\sin(\varphi)$$
+
 4.  **Spring Torque ($\tau_{k}$):** The spring force $F_{k}$ is $k$ times the horizontal displacement $x = L\cos(\varphi)$. The moment arm is $L\sin(\varphi)$.
 
     $$\tau_{k} = -F_k \cdot (Moment\ Arm) = -\left(kL\cos(\varphi)\right) \cdot \left(L\sin(\varphi)\right)$$
