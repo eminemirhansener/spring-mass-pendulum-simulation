@@ -164,11 +164,11 @@ For detailed information on how the PID gains ($\mathbf{K_P, K_D, K_I}$) were th
 ### Execution Steps
 
 1.  Install the necessary libraries:
-    ```bash
+    ```
     pip install numpy matplotlib
     ```
 2.  Run the main simulation script (`pendulum_simulation.py`):
-    ```bash
+    ```
     python pendulum_simulation.py
     ```
 
