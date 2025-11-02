@@ -128,6 +128,13 @@ The simulation uses the following physical parameter values:
 ### Visualization
 The Python script utilizes Matplotlib's `FuncAnimation` to generate a live visualization, combining the physical movement of the pendulum with the time-domain plots of the state variables ($\phi$, $\dot{\phi}$) and the Input Torque ($\tau$). Notably, the spring's dynamic behavior (stretching/compressing and rotation) is achieved using **affine transformations (scaling and rotation)** applied to a predefined spring geometry, which is an advanced technique for kinematic visualization.
 
+---
+## Controller Tuning Methodology
+
+For detailed information on how the PID gains ($\mathbf{K_P, K_D, K_I}$) were theoretically calculated using the **Pole Placement** technique, including the target performance parameters ($\zeta, \omega_n, \alpha$) and the resulting symbolic/numerical solutions, please refer to the dedicated tuning folder.
+
+* **[PID Tuning Details and MATLAB Code (Pole Placement)](/pid_tuning)**
+
 ## 5. How to Run the Code
 
 ### Requirements
