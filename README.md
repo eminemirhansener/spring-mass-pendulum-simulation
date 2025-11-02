@@ -115,7 +115,7 @@ $$
 
 The final linearized dynamics are:
 
-$$\begin{bmatrix}\dot{\varphi} \newline \ddot{\varphi}\end{bmatrix} = \begin{bmatrix}0 & 1 \newline -\frac{gL(\frac{m}{2}+M)+kL^{2}}{(\frac{1}{3}m+M)L^{2}} & -\frac{b}{(\frac{1}{3}m+M)L^{2}}\end{bmatrix} \begin{bmatrix}\varphi \newline \dot{\varphi}\end{bmatrix} + \begin{bmatrix}0\\ \frac{1}{(\frac{1}{3}m+M)L^{2}}\end{bmatrix}\tau$$
+$$\begin{bmatrix}\dot{\varphi} \newline \ddot{\varphi}\end{bmatrix} = \begin{bmatrix}0 & 1 \newline -\frac{gL(\frac{m}{2}+M)+kL^{2}}{(\frac{1}{3}m+M)L^{2}} & -\frac{b}{(\frac{1}{3}m+M)L^{2}}\end{bmatrix} \begin{bmatrix}\varphi \newline \dot{\varphi}\end{bmatrix} + \begin{bmatrix}0 \newline \frac{1}{(\frac{1}{3}m+M)L^{2}}\end{bmatrix}\tau$$
 
 ## 4. Simulation Implementation
 
