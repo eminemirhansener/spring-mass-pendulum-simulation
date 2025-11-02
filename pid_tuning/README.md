@@ -39,7 +39,7 @@ The transfer function $G(s)$, which relates the input torque $\mathbf{\tau}(s)$ 
 
     The transfer function $\mathbf{G}(s)$ is defined as $\mathbf{Y}(s) / \mathbf{\tau}(s)$:
 
-    <ins>**$$\mathbf{G}(s) = \mathbf{C}(s\mathbf{I} - \mathbf{A})^{-1}\mathbf{B} + \mathbf{D}$$**</ins>
+    $$\mathbf{G}(s) = \mathbf{C}(s\mathbf{I} - \mathbf{A})^{-1}\mathbf{B} + \mathbf{D}$$
 
 This formula is numerically and symbolically calculated using MATLAB based on the system's $\mathbf{A, B, C, D}$ matrices to find the explicit form $G(s) = \Phi(s) / \mathbf{\tau}(s)$.
 
