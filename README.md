@@ -137,7 +137,7 @@ $$\begin{bmatrix}\dot{\varphi} \newline \ddot{\varphi}\end{bmatrix} = \begin{bma
 ## 4. Simulation Implementation
 
 ### Numerical Method
-The state-space model is solved numerically using the **Euler Forward Integration Method** ($\mathbf{X}_{k+1} = \mathbf{X}_k + \mathbf{\dot{X}}_k \cdot \Delta t$) for a fast, time-domain response. **This same method forms the basis for the numerical integration and differentiation used within the PID control loop.**
+The state-space model is solved numerically using the **Euler Forward Integration Method** ($\mathbf{X}_{k+1} = \mathbf{X}_k + \mathbf{\dot{X}}_k \cdot \Delta t$) for a fast, time-domain response. **This same method forms the basis for the numerical integration and differentiation used within the control loops.**
 
 ### Controller Design (PID)
 To stabilize the system and ensure it reaches and maintains a desired angular position ($\phi_{target}$), a **PID controller** was implemented. The control torque ($\tau_{PID}$) is calculated based on the error signal between the target angle and the current angle:
@@ -147,6 +147,18 @@ $$\tau_{PID} = K_P \cdot e(t) + K_I \cdot \int e(t) dt + K_D \cdot \frac{de(t)}{
 The controller utilizes numerical approximations for its terms:
 * **Integral Term ($I$):** Calculated using the **Left Rectangular Method** (Forward Euler integration): $\int e(t) dt \approx \sum e_k \cdot \Delta t$.
 * **Derivative Term ($D$):** Calculated using the **Forward Difference Method** (Forward Euler): $\frac{de(t)}{dt} \approx \frac{e_k - e_{k-1}}{\Delta t}$.
+
+### Controller Design (Q-Learning)
+
+The **Q-Learning** algorithm, a model-free Reinforcement Learning technique, was implemented to learn an optimal policy for stabilization around a reference angle ($\phi_{ref} = \pi/12$ rad). The control policy is derived from the learned Q-table, $Q(s, a)$.
+
+The continuous state space $[\phi, \dot{\phi}]^T$ is discretized into a finite Q-table (50 bins for angle, 50 bins for velocity) to map states to optimal actions (torque $\tau$). The action space consists of 101 discrete torque values in the range $[-10.0, 10.0]$ N.m.
+
+The agent maximizes its cumulative reward, $R$, which is defined to penalize angular error, control effort, and the change in control effort ($\Delta\tau$):
+
+$$R = -20 \cdot |\phi - \phi_{ref}| - \lambda_{\tau} \cdot \tau^2 - \lambda_{\Delta\tau} \cdot (\Delta\tau)^2$$
+
+The learning process uses the standard Q-Learning update rule with a learning rate $\alpha$ and a discount factor $\gamma$.
 
 ### Simulation Parameters
 The simulation uses the following physical parameter values:
@@ -182,11 +194,9 @@ For detailed information on how the PID gains ($\mathbf{K_P, K_D, K_I}$) were th
 
 1.  Install the necessary libraries:
     ```
-pip install numpy matplotlib
+pip install numpy matplotlib pandas
     ```
 2.  Run the main simulation script (`pendulum_simulation.py`):
     ```
     python pendulum_simulation.py
     ```
-
----
