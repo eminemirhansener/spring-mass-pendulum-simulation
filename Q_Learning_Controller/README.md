@@ -27,7 +27,7 @@ Q-Learning is a model-free, off-policy reinforcement learning algorithm used to 
 
 The optimal Q-function, $Q^*(s, a)$, must satisfy the Bellman Optimality Equation, which states that the value of a state-action pair is the immediate reward plus the discounted maximum expected future reward from the next state:
 
-$$Q^*(s, a) = R(s, a) + \gamma \max_{a'} Q^*(s', a')$$
+$$Q^{\\*}(s, a) = R(s, a) + \gamma \max_{a'} Q^{\\star}(s', a')$$
 
 Where:
 * $s$: Current state (e.g., $[\phi, \dot{\phi}]$).
